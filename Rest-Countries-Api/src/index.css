@@ -1,0 +1,32 @@
+:root {
+    --background-color: hsl(0, 0%, 98%);
+    --primary-bgcolor: #fff;
+    --text-color: hsl(200, 15%, 8%);
+    --input-color: hsl(0, 0%, 52%);
+    --placeholder-color: hsl(0, 0%, 80%);
+    --secondary-bgcolor: hsl(0, 0%, 70%);
+}
+
+[data-theme='dark'] {
+    --background-color: hsl(207, 26%, 17%);
+    --primary-bgcolor: hsl(209, 23%, 22%);
+    --secondary-bgcolor: hsl(0, 0%, 100%);
+    --text-color: hsl(0, 0%, 100%);
+    --input-color: hsl(0, 0%, 100%);
+    --placeholder-color: hsl(0, 0%, 90%);
+    --dropdown-color: hsl(200, 15%, 8%);
+}
+
+*, 
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Nunito Sans', sans-serif;
+    transition: all .3s;
+}
