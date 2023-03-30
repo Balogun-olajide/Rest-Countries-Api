@@ -11,6 +11,7 @@ The designs were created to the following widths:
 
 ### Neutral
 
+
 - Dark Blue (Dark Mode Elements): hsl(209, 23%, 22%)
 - Very Dark Blue (Dark Mode Background): hsl(207, 26%, 17%)
 - Very Dark Blue (Light Mode Text): hsl(200, 15%, 8%)
@@ -19,6 +20,7 @@ The designs were created to the following widths:
 - White (Dark Mode Text & Light Mode Elements): hsl(0, 0%, 100%)
 
 ## Typography
+
 
 ### Body Copy
 
