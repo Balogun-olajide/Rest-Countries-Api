@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import CountryInfo from '.CountryInfo';
+import CountryInfo from './CountryInfo';
+import HomePage from './HomePage';
 
 export default class App extends Component {
     constructor() {
