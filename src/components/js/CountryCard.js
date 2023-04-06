@@ -5,8 +5,8 @@ import { useHistory } from 'react-router-dom';
 const CountryCard = ({countryName, flagUrl, population, region, capital}) => {
     const history = useHistory();
     return (
-        <div className='country-card' onClick={() => history.push('/${countryName}')}>
-            <div className='country-flag' style={{backgroundImage: 'url(${flagUrl})'}}>
+        <div className='country-card' onClick={() => history.push(`/${countryName}`)}>
+            <div className='country-flag' style={{backgroundImage: `url(${flagUrl})`}}>
             </div>
             <div className='country-info'>
                 <p className='country-name'>{countryName}</p>

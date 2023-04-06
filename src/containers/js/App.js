@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import CountryInfo from './CountryInfo';
-import HomePage from './HomePage';
+import MainPage from './MainPage';
 
 export default class App extends Component {
     constructor() {
@@ -13,7 +13,7 @@ export default class App extends Component {
 
 
   componentDidMount() {
-    let theme = localstorage['theme'];
+    let theme = localStorage['theme'];
     if (theme) {
   this.setState({ theme });
                 document.documentElement.setAttribute('data-theme', theme);
@@ -38,14 +38,14 @@ export default class App extends Component {
     return (
         <div className='App'>
           <Router>
-           <switch>
-            <Router exact path='/'>
-              <HomePage switchTheme={this.switchTheme} theme={this.state.theme} />
-            </Router>
-            <Router path='/:country'>
+           <Switch>
+            <Route exact path='/'>
+              <MainPage switchTheme={this.switchTheme} theme={this.state.theme} />
+            </Route>
+            <Route path='/:country'>
                 <CountryInfo switchTheme={this.switchTheme} theme={this.state.theme} />
-            </Router>
-            </switch>
+            </Route>
+            </Switch>
            </Router>
         </div>
     )

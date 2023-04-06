@@ -1,0 +1,43 @@
+.header,
+theme-switch {
+     display: flex;
+     align-items: center;
+}
+
+.header {
+    height: 5rem;
+    background-color: var(--primary-bgcolor);
+    justify-content: space-between;
+    padding: 0 1rem;
+    box-shadow: rgba(0, 0, 0, 0.13) 0px 2px 4px 0px;
+}
+
+.header__title {
+   font-size: 1.25rem;
+   font-weight: 800;
+}
+
+.theme-switch {
+    cursor: pointer;
+}
+
+.theme-switch__icon {
+    margin-right: 0.5rem;
+}
+
+.theme-switch__text {
+     font-weight: 600;
+     font-size: 1.1rem;
+}
+
+@media (min-width: 1000px) {
+    .header {
+        padding: 0 2rem;
+    }
+    .header__title {
+        font-size: 1.3rem;
+    } 
+    .theme-switch__text {
+        font-size: 1.2rem;
+    }
+}

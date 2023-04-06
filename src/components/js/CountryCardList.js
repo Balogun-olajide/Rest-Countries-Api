@@ -1,5 +1,6 @@
 import React from 'react';
 import CountryCard from './CountryCard';
+import '../css/CountryCardList.css';
 
 const CountryCardList = ({ allcountries }) => {
     return (
