@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import CountryInfo from './CountryInfo';
 import MainPage from './MainPage';
+import CountryCardList from '../../components/js/CountryCardList';
+import '../css/App.css';
 
 export default class App extends Component {
     constructor() {
@@ -24,7 +26,7 @@ export default class App extends Component {
     let { theme } = this.state;
     if (theme === 'light') {
         theme = 'dark';
-        document.documentElement.setAttribute('date-theme', 'light');
+        document.documentElement.setAttribute('data-theme', 'dark');
         localStorage['theme'] = 'dark';
     } else {
         theme = 'light';

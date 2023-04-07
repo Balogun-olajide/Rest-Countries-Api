@@ -70,7 +70,7 @@
 }
 
 @media (min-width: 1000px) {
-    .homepage__action-menu {
+    .mainpage__action-menu {
         display: flex;
         justify-content: space-between;
         padding: 1rem 2rem;

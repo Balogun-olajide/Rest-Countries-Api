@@ -21,8 +21,8 @@ export default class MainPage extends Component {
 
     componentDidMount() {
         fetch('https://restcountries.com/v3.1/all')
-        .then(res => res.json())
-        .then(data => {
+         .then(res => res.json())
+         .then(data => {
             this.setState({
             allCountries: data,
             displayedCountries: data,
@@ -35,7 +35,7 @@ export default class MainPage extends Component {
 dropMenuDown =() => this.setState({ dropdownActive: !this.state.dropdownActive })
 
 filterByRegion = (region) => {
-    fetch(`https://restcountries.eu/rest/v2/region/${region}`)
+    fetch(`https://restcountries.eu/rest/v3.1/region/${region}`)
      .then(res => res.json())
      .then(data => {
         this.setState({
@@ -67,7 +67,7 @@ render()  {
     const { filterByRegion } = this;
 
     return(
-      <div className='homepaige'>
+      <div className='mainpage'>
          <Helmet>
             <title>World Countries</title>
             <meta 
@@ -81,7 +81,7 @@ render()  {
          </Helmet>
 
          <Header switchTheme={switchTheme} theme={theme} />
-         <div className='homepaige__action-menu'>
+         <div className='mainpage__action-menu'>
 
             <div className='search-box'>
                 <FontAwesomeIcon icon={faSearch} className='search-box__icon' />
@@ -143,5 +143,5 @@ render()  {
        }
     </div>
     )
-}
+ }
 }
