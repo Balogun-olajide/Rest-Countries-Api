@@ -18,7 +18,7 @@ export default class Header extends Component {
                     }
                     <p className='theme-switch__text'>Dark Mode</p>
                 </div>         
-                  </header>
+            </header>
         )
     }
 }

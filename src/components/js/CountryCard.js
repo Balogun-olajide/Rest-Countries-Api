@@ -26,7 +26,7 @@ const CountryCard = ({countryName, flagUrl, population, region, capital}) => {
                 </div>
             </div>
         </div>      
-    )
+    );
 }
 
 export default CountryCard;

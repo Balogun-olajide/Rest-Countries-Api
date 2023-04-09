@@ -1,4 +1,4 @@
-{
+ {
   "name": "rest-countries-api",
   "version": "0.1.0",
   "private": true,
@@ -14,7 +14,7 @@
     "react-helmet": "^6.1.0",
     "react-router": "^6.9.0",
     "react-router-dom": "^5.3.4",
-    "react-scripts": "5.0.1"
+    "react-scripts": "^5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -40,4 +40,4 @@
       "last 1 safari version"
     ]
   }
-}
+ }

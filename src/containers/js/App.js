@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import {Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import CountryInfo from './CountryInfo';
 import MainPage from './MainPage';
-import CountryCardList from '../../components/js/CountryCardList';
 import '../css/App.css';
+
 
 export default class App extends Component {
     constructor() {

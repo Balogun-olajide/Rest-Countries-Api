@@ -6,8 +6,9 @@ import '../css/MainPage.css';
 import Header from '../../components/js/Header';
 import Loader from '../../components/js/Loader';
 import { Helmet } from 'react-helmet';
+import ErrorBoundary from '../../components/js/ErrorBoundary';
 
-export default class MainPage extends Component {
+class MainPage extends Component {
     constructor() {
         super();
         this.state = {
@@ -18,6 +19,7 @@ export default class MainPage extends Component {
             loading: true
         }
     }
+
 
     componentDidMount() {
         fetch('https://restcountries.com/v3.1/all')
@@ -60,7 +62,7 @@ findCountry = e => {
        filterHeader: 'Filter by Region'
     })   
 }
-
+ 
 render()  {
     const { dropdownActive, displayedCountries, filterHeader, loading} = this.state;
     const { switchTheme, theme } = this.props;
@@ -68,31 +70,32 @@ render()  {
 
     return(
       <div className='mainpage'>
-         <Helmet>
-            <title>World Countries</title>
-            <meta 
-               name="description"
-               content="find information about all countries in the world"
-            />
-            <meta name='instagram:title' content='World Countries' />
-            <meta name='instagram:description' content='find information about all the countries in the world' />
-            <meta property='og:title' content='World Countries' />
-            <meta property='og:description' content='find information about all countries in the world' />
-         </Helmet>
+        <ErrorBoundary />
+          <Helmet>
+              <title>World Countries</title>
+              <meta 
+                name="description"
+                content="find information about all countries in the world"
+              />
+              <meta name='instagram:title' content='World Countries' />
+              <meta name='instagram:description' content='find information about all the countries in the world' />
+              <meta property='og:title' content='World Countries' />
+              <meta property='og:description' content='find information about all countries in the world' />
+          </Helmet>
 
-         <Header switchTheme={switchTheme} theme={theme} />
-         <div className='mainpage__action-menu'>
+          <Header switchTheme={switchTheme} theme={theme} />
+          <div className='mainpage__action-menu'>
 
-            <div className='search-box'>
-                <FontAwesomeIcon icon={faSearch} className='search-box__icon' />
-                <input 
-                   type='text'
-                   placeholder='Search for a country...'
-                   className='search-box__input'
-                   onChange={this.findCountry}
-                   />
-            </div>
-            <div className="filter-menu">
+              <div className='search-box'>
+                  <FontAwesomeIcon icon={faSearch} className='search-box__icon' />
+                  <input 
+                    type='text'
+                    placeholder='Search for a country...'
+                    className='search-box__input'
+                    onChange={this.findCountry}
+                  />
+              </div>
+              <div className="filter-menu">
                 <div 
                   className="filter-menu__header"
                   onClick={this.dropMenuDown}
@@ -145,3 +148,6 @@ render()  {
     )
  }
 }
+
+
+export default MainPage;
