@@ -2,7 +2,7 @@ import React from 'react';
 import '../css/CountryCard.css';
 import { useHistory } from 'react-router-dom';
 
-const CountryCard = ({countryName, flagUrl, population, region, capital}) => {
+const CountryCard = ({countryName, flagUrl, capital, population, region})=> {
     const history = useHistory();
     return (
         <div className='country-card' onClick={() => history.push(`/${countryName}`)}>

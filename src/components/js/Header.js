@@ -4,7 +4,7 @@ import { faMoon as solidMoon } from '@fortawesome/free-solid-svg-icons';
 import { faMoon as regularMoon }  from '@fortawesome/free-regular-svg-icons';
 import '../css/Header.css';
 
-export default class Header extends Component {
+class Header extends Component {
     render() {
         const { theme, switchTheme } = this.props;
         return (
@@ -22,3 +22,5 @@ export default class Header extends Component {
         )
     }
 }
+
+export default Header; 

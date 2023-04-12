@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import {Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import CountryInfo from './CountryInfo';
-import MainPage from './MainPage';
+import HomePage from './HomePage';
 import '../css/App.css';
 
-
-export default class App extends Component {
+class App extends Component {
     constructor() {
         super();
         this.state = {
@@ -42,7 +41,7 @@ export default class App extends Component {
           <Router>
            <Switch>
             <Route exact path='/'>
-              <MainPage switchTheme={this.switchTheme} theme={this.state.theme} />
+              <HomePage switchTheme={this.switchTheme} theme={this.state.theme} />
             </Route>
             <Route path='/:country'>
                 <CountryInfo switchTheme={this.switchTheme} theme={this.state.theme} />
@@ -53,3 +52,5 @@ export default class App extends Component {
     )
   }
 }
+
+export default App;

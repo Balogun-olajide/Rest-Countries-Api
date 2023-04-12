@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
+import Header from '../../components/js/Header';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import CountryCardList from '../../components/js/CountryCardList';
-import '../css/MainPage.css';
-import Header from '../../components/js/Header';
+import '../css/HomePage.css';
 import Loader from '../../components/js/Loader';
 import { Helmet } from 'react-helmet';
 import ErrorBoundary from '../../components/js/ErrorBoundary';
 
-class MainPage extends Component {
+
+class HomePage extends React.Component{
     constructor() {
         super();
         this.state = {
@@ -17,8 +18,9 @@ class MainPage extends Component {
             displayedCountries: [],
             filterHeader: 'Filter by Region',
             loading: true
-        }
+        };
     }
+
 
 
     componentDidMount() {
@@ -37,7 +39,7 @@ class MainPage extends Component {
 dropMenuDown =() => this.setState({ dropdownActive: !this.state.dropdownActive })
 
 filterByRegion = (region) => {
-    fetch(`https://restcountries.eu/rest/v3.1/region/${region}`)
+    fetch(`https://restcountries.com/v3.1/region/europe`)
      .then(res => res.json())
      .then(data => {
         this.setState({
@@ -68,8 +70,8 @@ render()  {
     const { switchTheme, theme } = this.props;
     const { filterByRegion } = this;
 
-    return(
-      <div className='mainpage'>
+    return (
+      <div className='homepage'>
         <ErrorBoundary />
           <Helmet>
               <title>World Countries</title>
@@ -84,7 +86,7 @@ render()  {
           </Helmet>
 
           <Header switchTheme={switchTheme} theme={theme} />
-          <div className='mainpage__action-menu'>
+          <div className='homepage__action-menu'>
 
               <div className='search-box'>
                   <FontAwesomeIcon icon={faSearch} className='search-box__icon' />
@@ -140,14 +142,14 @@ render()  {
             </div>
         </div>
        {
-        loading ?  
-        <Loader /> : 
-        <CountryCardList allCountries={displayedCountries} />
+           loading ?  
+           <Loader /> : 
+           <CountryCardList allCountries={displayedCountries} />
        }
     </div>
     )
  }
 }
 
+export default HomePage; 
 
-export default MainPage;
