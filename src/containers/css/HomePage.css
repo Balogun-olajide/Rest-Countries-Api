@@ -38,7 +38,14 @@
     cursor: pointer;
 }
 
-.filter-menu__header {
+.filter-menu__header,
+.filter-menu__dropdown-menu {
+    background-color: var(--primary-bgcolor);
+    border-radius: .5rem;
+    box-shadow: rgba(0, 0, 0, 0.13) 0px 1px 4px 0px;
+}
+.filter-menu__header
+ {
     display: flex;
     justify-content: space-between;
     align-items: center;

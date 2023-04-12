@@ -7,6 +7,7 @@ import '../css/Header.css';
 class Header extends Component {
     render() {
         const { theme, switchTheme } = this.props;
+        console.log('Theme:', theme);
         return (
             <header className='header'>
                 <p className='header__title'>where in the world?</p>
@@ -14,7 +15,7 @@ class Header extends Component {
                     {
                         theme !== 'light' ?
                         <FontAwesomeIcon className='theme-switch__icon'  icon={solidMoon} />:
-                        <FontAwesomeIcon ClassName='theme-switch__icon'  icon={regularMoon} />
+                        <FontAwesomeIcon className='theme-switch__icon'  icon={regularMoon} />
                     }
                     <p className='theme-switch__text'>Dark Mode</p>
                 </div>         
