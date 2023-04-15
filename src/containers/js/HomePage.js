@@ -56,7 +56,7 @@ findCountry = e => {
 
     allCountries = allCountries.filter(country => {
          const regex = new RegExp(e.target.value, 'gi');
-         return country.name.match(regex)  || country.capital.match(regex);
+        return country.region.match (regex) ;
     })
     
     this.setState({
@@ -64,7 +64,7 @@ findCountry = e => {
        filterHeader: 'Filter by Region'
     })   
 }
- 
+
 render()  {
     const { dropdownActive, displayedCountries, filterHeader, loading} = this.state;
     const { switchTheme, theme } = this.props;
@@ -116,9 +116,9 @@ render()  {
                 </p>
                 <p 
                   className="filter-menu__dropdown-option"
-                  onClick={() => filterByRegion('Americas')}
+                  onClick={() => filterByRegion('America')}
                   >
-                    Americas
+                    America
                   </p>
                   <p 
                    className="filter-menu__dropdown-option"

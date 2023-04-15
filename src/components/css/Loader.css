@@ -1,0 +1,10 @@
+.loader-icon {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.loader-icon__image {
+    width: 48px;
+    text-align: center;
+    height: 48px;
+}

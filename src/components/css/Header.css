@@ -30,6 +30,31 @@
      font-size: 1.1rem;
 }
 
+
+
+/* Light mode */
+body.light {
+    --background-color: #fafafa;
+    --primary-bgcolor: #fff;
+    --text-color: #111517;
+    --input-color: #858585;
+    --placeholder-color: #ccc;
+    --secondary-bgcolor: #b3b3b3;
+}
+
+
+/* Dark mode */
+
+body.dark {
+    --background-color: #202c37;
+    --primary-bgcolor: #2b3945;
+    --text-color: #fff;
+    --input-color: #fff;
+    --placeholder-color: #e6e6e6;
+    --secondary-bgcolor: #fff;
+    --dropdown-color: #111517;
+}
+
 @media (min-width: 1000px) {
     .header {
         padding: 0 2rem;
@@ -40,4 +65,7 @@
     .theme-switch__text {
         font-size: 1.2rem;
     }
-}
+} 
+
+
+

@@ -4,7 +4,7 @@ import CountryInfo from './CountryInfo';
 import HomePage from './HomePage';
 import '../css/App.css';
 
-class App extends Component {
+class App extends  React.Component {
     constructor() {
         super();
         this.state = {
