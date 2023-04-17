@@ -1,30 +1,32 @@
 import React from 'react';
 import CountryCard from './CountryCard';
 import '../css/CountryCardList.css';
+import { useState, useEffect } from 'react';
 
-const CountryCardList = ({ allcountries }) => {
-  if (!allcountries || allcountries.length === 0) {
-    return <div>No countries to display</div>;
-  }
+const CountryCardList= () => {
+  const [countries, setCountries] = useState([]);
 
+  useEffect(() => {
+    fetch('https://restcountries.com/v3.1/all')
+    .then(response => response.json())
+    .then(data => setCountries(data))
+    .catch(error => console.log(error));
+  }, []);
+  console.log(countries);
   return (
-    <div className='country-card-list'>
-      {allcountries.map((country, i) => {
-        const { name, flag, population, capital, region } = country;
-        const nameString = name.toString(); // Convert name to string
-        const matches = nameString.match(/searchPattern/); // Call match on string
-
-        return (
-          <CountryCard
-            key={i}
-            countryName={name}
-            countryFlag={flag}
-            countryPopulation={population}
-            countryCapital={capital}
-            countryRegion={region}
-            matches={matches}
-          />
-        );
+    <div className='country-card-list'> 
+      {countries.map((country, i) => {
+        const { name, flags, population, capital, region } = country;
+      return (
+        <CountryCard 
+         key={i}
+         countryName={name.common}
+         flagUrl= {flags.png}
+         population={population}
+         capital={capital && capital[0]}
+         region={region}
+        />
+      );
       })}
     </div>
   );

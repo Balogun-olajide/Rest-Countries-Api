@@ -7,6 +7,7 @@ import '../css/CountryInfo.css';
 import Loader from '../../components/js/Loader';
 import { Helmet } from 'react-helmet';
 
+
 class CountryInfo extends Component {
     constructor() {
         super();
@@ -19,30 +20,32 @@ class CountryInfo extends Component {
             loading: true
         }
     }
-
+   
     componentDidMount() {
         const { country } = this.props.match.params;
-        fetch(`https://restcountries.eu/rest/v3.1/all?fields=countries`)
-            .then(res => res.json())
-            .then(data => {
-                let currencies = '';
-                let languages = '';
-                data[0].currencies.map(currency => currencies += `${currency.name}, `);
-                data[0].languages.map(language => languages += `${language.name}, `);
+        fetch(`https://restcountries.com/v3.1/name/{name}?fullText=true`)
+         .then(res => res.json())
+         .then(data => {
+            let currencies = '';
+            let languages = '';
+            data[0].currencies.map(currency => currencies += `${currency.name}, ` );
+            data[0].languages.map(language => languages += `${language.name}, `);
+        
 
-                this.setState({ 
-                    countryInfo: data[0],
-                    topLevelDomain: data[0].topLevelDomain,
-                    currencies: currencies.slice(0, -2),
-                    languages: languages.slice(0, -2),
-                    loading: false
-                });
-                console.log(data)
+            this.setState({
+                countryInfo: data[0],
+                topLevelDomain: data[0].topLevelDomain,
+                currencies: currencies.slice(0, -2),
+                languages: languages.slice(0, -2),
+                loading: false
+            });
+            console.log(data)
 
-                this.findCountryBorders(data[0].borders);
-            })
-            .catch(console.log);
+            this.findCountryBorders(data[0].borders);
+        })
+         .catch(console.log);
     }
+            
 
     findCountryBorders = (borders) => {
         borders.forEach(border => {

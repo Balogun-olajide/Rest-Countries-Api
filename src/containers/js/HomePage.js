@@ -7,6 +7,7 @@ import '../css/HomePage.css';
 import Loader from '../../components/js/Loader';
 import { Helmet } from 'react-helmet';
 import ErrorBoundary from '../../components/js/ErrorBoundary';
+import CountryInfo from './CountryInfo';
 
 
 class HomePage extends React.Component{
@@ -14,11 +15,11 @@ class HomePage extends React.Component{
         super();
         this.state = {
             dropdownActive: false,
-            allCountries: [],
+            allCountries : [],
             displayedCountries: [],
             filterHeader: 'Filter by Region',
             loading: true
-        };
+        }
     }
 
 
@@ -36,7 +37,7 @@ class HomePage extends React.Component{
     .catch(console.log);
 }
 
-dropMenuDown =() => this.setState({ dropdownActive: !this.state.dropdownActive })
+dropMenuDown = () => this.setState({ dropdownActive: !this.state.dropdownActive })
 
 filterByRegion = (region) => {
     fetch(`https://restcountries.com/v3.1/region/europe`)
@@ -56,8 +57,9 @@ findCountry = e => {
 
     allCountries = allCountries.filter(country => {
          const regex = new RegExp(e.target.value, 'gi');
-        return country.region.match (regex) ;
+        return CountryInfo(regex) || country.capital.match(regex);
     })
+
     
     this.setState({
        displayedCountries: allCountries,
