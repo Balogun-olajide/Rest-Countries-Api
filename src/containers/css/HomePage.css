@@ -1,7 +1,58 @@
+
+.homepage {
+    margin: 0 auto;
+    padding: 2rem;
+    max-width: 1440px;
+}
+
+.homepage__action-menu {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media (min-width: 1000px) {
+    .homepage__action-menu {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 2rem;
+    }
+    .search-box {
+        width: 50%;
+        padding: 0;
+    }
+    .filter-menu,
+    .filter-menu__dropdown-menu {
+        width: 250px;
+    }
+}
+
+.country-card-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 2rem;
+    margin-top: 2rem;
+}
+
+@media (min-width: 1000px) {
+    .country-card-list {
+        margin-top: 4rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .country-card-list {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-gap: 3rem;
+    }
+}
+
 .search-box {
-   padding: 1rem;
-   display: flex;
-   align-items: center;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    margin-top: 5rem;
 }
 
 .search-box__input {
@@ -36,6 +87,7 @@
     margin-left: 1rem;
     font-weight: 600;
     cursor: pointer;
+    margin-top: 5rem;
 }
 
 .filter-menu__header,
@@ -44,8 +96,8 @@
     border-radius: .5rem;
     box-shadow: rgba(0, 0, 0, 0.13) 0px 1px 4px 0px;
 }
-.filter-menu__header
- {
+
+.filter-menu__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -54,11 +106,13 @@
 }
 
 .filter-menu__dropdown-menu {
-    display: none;
+    display: flex;
     flex-direction: column;
     margin-top: .5rem;
     position: absolute; 
     width: 50%;
+    border-radius: 5px;
+    box-shadow: var(--shadow);
 }
 
 .filter-menu__dropdown-menu--active {
@@ -78,17 +132,20 @@
 
 @media (min-width: 1000px) {
     .homepage__action-menu {
-        display: flex;
-        justify-content: space-between;
-        padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 2rem;
     }
     .search-box {
-        width: 50%;
-        padding: 0;
+      width: 50%;
+      padding: 0;
     }
     .filter-menu,
     .filter-menu__dropdown-menu {
-        width: 250px;
+      width: 250px;
     }
-}
-
+  }
+  
+  
+  
+  

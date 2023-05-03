@@ -6,6 +6,11 @@
 
 .header {
     height: 5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
     background-color: var(--primary-bgcolor);
     justify-content: space-between;
     padding: 0 1rem;

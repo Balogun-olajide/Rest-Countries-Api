@@ -1,56 +1,102 @@
-import React, { Component } from 'react';
-import {Route, BrowserRouter as Router, Switch } from 'react-router-dom';
-import CountryInfo from './CountryInfo';
-import HomePage from './HomePage';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Route, Switch, useHistory } from 'react-router-dom';
+import Header from './Header';
+import Search from './Search';
+import CountryList from './CountryList';
+import CountryDetail from './CountryDetail';
+import '../css/App.css';
 
+const App = () => {
+  const [countries, setCountries] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCountry, setSelectedCountry] = useState(null);
 
+  useEffect(() => {
+    const fetchCountries = async () => {
+      const response = await axios.get('https://restcountries.com/v3.1/all');
+      setCountries(response.data);
+    };
+    fetchCountries();
+  }, []);
 
-class App extends Component {
-    constructor() {
-        super();
-        this.state = {
-            theme: 'light'
-        }
-    }
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+    setSelectedCountry(null);
+  };
 
-    componentDidMount() {
-		let theme = localStorage['theme'];
- 		if (theme) {
-      this.setState({ theme });
-			document.documentElement.setAttribute('data-theme', theme);
-		};
-	}
+  const handleSelectCountry = (country) => {
+    setSelectedCountry(country);
+    setSearchQuery('');
+  };
 
-	switchTheme = () => {
-		let { theme } = this.state;
-		if (theme === 'light') {
-			theme = 'dark';
-			document.documentElement.setAttribute('data-theme', 'dark');
-			localStorage['theme'] = 'dark';
-		} else {
-			theme = 'light';
-			document.documentElement.setAttribute('data-theme', 'light');
-			localStorage['theme'] = 'light';
-		}
+  const handleClearSelection = () => {
+    setSelectedCountry(null);
+  };
 
-		this.setState({ theme });
-  }
-  
-  render() {
-    return (
-      <div className='App'>
-          <Router>
-            <Switch>
-            <Route exact path='/'>
-              <HomePage switchTheme={this.switchTheme} theme={this.state.theme} />
-            </Route>
-            <Route path='/:country'>
-              <CountryInfo switchTheme={this.switchTheme} theme={this.state.theme} />
-            </Route>
-            </Switch>
-          </Router>
+  const filteredCountries = countries.filter((country) => {
+    const name = country.name.common.toLowerCase();
+    const query = searchQuery.toLowerCase();
+    return name.includes(query);
+  });
+
+  return (
+    <div className='app'>
+      <Header />
+      <Switch>
+        <Route exact path='/'>
+          <Search onSearch={handleSearch} query={searchQuery} />
+          <CountryList
+            countries={filteredCountries}
+            onSelectCountry={handleSelectCountry}
+          />
+        </Route>
+        <Route path='/:name'>
+          <CountryDetail
+            selectedCountry={selectedCountry}
+            onClearSelection={handleClearSelection}
+          />
+        </Route>
+      </Switch>
+    </div>
+  );
+};
+
+const CountryCard = ({ country }) => {
+  const history = useHistory();
+
+  const { name, flags, capital, population, region } = country;
+
+  return (
+    <div
+      className='country-card'
+      onClick={() => history.push(`/${name.common}`)}
+    >
+      <div
+        className='country-flag'
+        style={{ backgroundImage: `url(${flags.svg})` }}
+      ></div>
+      <div className='country-info'>
+        <p className='country-name'>{name.common}</p>
+        <div className='country-stats'>
+          <p className='country-population country-stats__stat'>
+            <span className='country-stats__title'>Population:</span>
+            <span className='country-stats__value'>
+              {population.toLocaleString()}
+            </span>
+          </p>
+          <p className='country-region country-stats__stat'>
+            <span className='country-stats__title'>Region:</span>
+            <span className='country-stats__value'>{region}</span>
+          </p>
+          <p className='contry-capital country-stats__stat'>
+            <span className='country-stats__title'>Capital:</span>
+            <span className='country-stats__value'>{capital}</span>
+          </p>
+        </div>
       </div>
-    )
-  }
-}
+    </div>
+  );
+};
+
 export default App;

@@ -21,7 +21,7 @@ const CountryCardList= () => {
         <CountryCard 
          key={i}
          countryName={name.common}
-         flagUrl= {flags.png}
+         flagUrl= {flags.svg}
          population={population}
          capital={capital && capital[0]}
          region={region}

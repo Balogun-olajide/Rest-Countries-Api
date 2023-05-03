@@ -2,6 +2,7 @@ import React from 'react';
 import '../css/CountryCard.css';
 import { useHistory } from 'react-router-dom';
 
+
 const CountryCard = ({countryName, flagUrl, capital, population, region})=> {
     const history = useHistory();
     
@@ -28,6 +29,7 @@ const CountryCard = ({countryName, flagUrl, capital, population, region})=> {
             </div>
         </div>      
     );
+
 }
 
 export default CountryCard;

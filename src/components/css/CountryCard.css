@@ -13,10 +13,12 @@
 }
 
 .country-flag {
-        width: 360px;
+        width: 100%;
         height: 200px;
+        padding-top: 56.26%;
         background-size: cover;
         border-radius: 0.5rem 0.5rem 0 0;
+        background-position: center;
 }
     
 
