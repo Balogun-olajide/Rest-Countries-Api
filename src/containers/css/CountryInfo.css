@@ -129,3 +129,31 @@ h1 {
   outline: none;
   box-shadow: 0 0 0 2px #333;
 }
+
+
+@media (max-width: 767px) {
+  .country-info-body {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .flag-container {
+    margin-right: 0;
+    margin-bottom: 2rem;
+  }
+
+  .info-container {
+    margin-left: 0;
+  }
+
+  .country-info-details {
+    flex-direction: column;
+  }
+
+  .country-info-column,
+  .country-info-extra {
+    flex: 1;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
