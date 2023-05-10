@@ -8,7 +8,7 @@
 .homepage__action-menu {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
 }
 
@@ -90,6 +90,9 @@
     margin-top: 5rem;
 }
 
+.filter-menu__dropdown-menu--open{
+    display: block;
+}
 .filter-menu__header,
 .filter-menu__dropdown-menu {
     background-color: var(--primary-bgcolor);
@@ -117,6 +120,7 @@
 
 .filter-menu__dropdown-menu--active {
     display: flex;
+    position: relative;
 }
 
 .filter-menu__dropdown-option {

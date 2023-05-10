@@ -1,11 +1,19 @@
 import React from 'react';
-import ReactDom from 'react-dom/client';
-import './index.css';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import HomePage from './containers/js/HomePage';
+import CountryInfo from './containers/js/CountryInfo';
+import Header from './components/js/Header';
+import './index.css';
 
+const root = createRoot(document.getElementById('root'));
 
-const root = ReactDom.createRoot(document.getElementById('root'));
 root.render(
-    <HomePage />
-); 
-
+  <Router>
+    <Header />
+    <Switch>
+      <Route exact path="/" component={HomePage} />
+      <Route exact path="/CountryInfo/:id" component={CountryInfo} />
+    </Switch>
+  </Router>
+);
